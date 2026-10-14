@@ -226,68 +226,87 @@ class _PortfolioPageState extends State<PortfolioPage> {
     );
 
     final profilePanel = Container(
-      constraints: const BoxConstraints(minHeight: 350),
-      padding: const EdgeInsets.all(30),
+      height: 430,
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: PortfolioColors.ink,
         borderRadius: BorderRadius.circular(8),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Stack(
+        fit: StackFit.expand,
         children: [
-          Row(
-            children: [
-              const Expanded(
-                child: Text(
-                  'A LITTLE ABOUT ME',
+          Image.asset('lib/image.png', fit: BoxFit.cover, alignment: Alignment.topCenter),
+          DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.transparent,
+                  PortfolioColors.ink.withOpacity(0.15),
+                  PortfolioColors.ink.withOpacity(0.96),
+                ],
+                stops: const [0.35, 0.58, 1],
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            left: 20,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
+              decoration: BoxDecoration(
+                color: PortfolioColors.ink.withOpacity(0.82),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: const Text(
+                'COMPUTER SCIENCE STUDENT',
+                style: TextStyle(
+                  color: PortfolioColors.white,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 10,
+                  letterSpacing: 1,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 24,
+            right: 24,
+            bottom: 24,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  '8.53',
                   style: TextStyle(
-                    color: Color(0xFFB8C7C1),
-                    fontWeight: FontWeight.w700,
-                    fontSize: 11,
-                    letterSpacing: 1.5,
+                    color: PortfolioColors.lime,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 68,
+                    height: 1,
                   ),
                 ),
-              ),
-              Container(
-                width: 9,
-                height: 9,
-                decoration: const BoxDecoration(
-                  color: PortfolioColors.lime,
-                  shape: BoxShape.circle,
+                const SizedBox(height: 8),
+                const Text(
+                  'CGPA  /  B.Tech CSE',
+                  style: TextStyle(
+                    color: PortfolioColors.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 32),
-          const Text(
-            '8.53',
-            style: TextStyle(
-              color: PortfolioColors.lime,
-              fontWeight: FontWeight.w800,
-              fontSize: 82,
-              height: 1,
-              letterSpacing: -2,
-            ),
-          ),
-          const SizedBox(height: 10),
-          const Text(
-            'CGPA  /  B.Tech CSE',
-            style: TextStyle(
-              color: PortfolioColors.white,
-              fontWeight: FontWeight.w600,
-              fontSize: 15,
-            ),
-          ),
-          const SizedBox(height: 28),
-          const Divider(color: Color(0xFF3A4D48), height: 1),
-          const SizedBox(height: 20),
-          const Text(
-            'Currently studying at BVRIT Hyderabad College of Engineering for Women.',
-            style: TextStyle(
-              color: Color(0xFFCFD8D3),
-              fontSize: 14,
-              height: 1.6,
+                const SizedBox(height: 14),
+                const Divider(color: Color(0xFF71807A), height: 1),
+                const SizedBox(height: 12),
+                const Text(
+                  'BVRIT Hyderabad College of Engineering for Women',
+                  style: TextStyle(
+                    color: Color(0xFFE1E8E4),
+                    fontSize: 13,
+                    height: 1.45,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
